@@ -16,13 +16,19 @@ open class FPNTextField: UITextField {
 			layoutIfNeeded()
 		}
 	}
+    
+    open var phoneCodeSpace: CGFloat = 3 {
+        didSet {
+            layoutIfNeeded()
+        }
+    }
 
 	private var flagWidthConstraint: NSLayoutConstraint?
 	private var flagHeightConstraint: NSLayoutConstraint?
 
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
-		let width = flagButtonSize.width + getWidth(text: phoneCodeTextField.text!)
+		let width = flagButtonSize.width + getWidth(text: phoneCodeTextField.text!) + phoneCodeSpace
 		let height = bounds.height
 
 		return CGSize(width: width, height: height)
